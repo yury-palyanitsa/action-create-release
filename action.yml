@@ -31,6 +31,9 @@ inputs:
     description: 'schema used to compute next tag. continuous or semantic'
     required: false
     default: 'continuous'
+  commitish:
+    description: 'Any branch or commit SHA the Git tag is created from, unused if the Git tag already exists. Default: SHA of current commit'
+    required: false
 outputs:
   id:
     description: 'The ID of the created Release'
