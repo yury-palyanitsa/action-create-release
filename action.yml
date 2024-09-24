@@ -34,6 +34,10 @@ inputs:
   commitish:
     description: 'Any branch or commit SHA the Git tag is created from, unused if the Git tag already exists. Default: SHA of current commit'
     required: false
+  make_latest:
+    description: '`true` to mark release as latest. `false` to keep it as a regular release. Default: `true`'
+    required: false
+    default: true
 outputs:
   id:
     description: 'The ID of the created Release'
