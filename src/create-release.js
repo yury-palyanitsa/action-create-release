@@ -155,6 +155,7 @@ async function run() {
     // Use predefined tag or calculate automatic next tag
     const tag = isNullString(tagName) ? await computeNextTag(scheme) : tagName.replace('refs/tags/', '');
 
+    const makeLatest = core.getInput('make_latest', { required: false }) === 'true';
     const releaseName = core.getInput('release_name', { required: false });
     const release = isNullString(releaseName) ? tag : releaseName.replace('refs/tags/', '');
 
@@ -174,7 +175,8 @@ async function run() {
       body,
       draft,
       prerelease,
-      target_commitish: commitish
+      target_commitish: commitish,
+      make_latest: makeLatest,
     });
 
     // Get the ID, html_url, and upload URL for the created Release from the response
