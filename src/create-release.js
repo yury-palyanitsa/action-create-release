@@ -155,7 +155,7 @@ async function run() {
     // Use predefined tag or calculate automatic next tag
     const tag = isNullString(tagName) ? await computeNextTag(scheme) : tagName.replace('refs/tags/', '');
 
-    const makeLatest = core.getInput('make_latest', { required: false }) === 'true';
+    const makeLatest = core.getInput('make_latest', { required: false });
     const releaseName = core.getInput('release_name', { required: false });
     const release = isNullString(releaseName) ? tag : releaseName.replace('refs/tags/', '');
 
